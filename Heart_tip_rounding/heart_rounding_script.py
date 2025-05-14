@@ -5,6 +5,8 @@ import os
 import csv
 import matplotlib.pyplot as plt
 
+# THIS SCRIPT RUNS A MINI PROGRAM SHOWING THE RESULTING INSCRINBED CIRCLE IN THE LEFT BOTTOM TIP OF THE HEART..
+
 # Ścieżka do folderu z obrazami i wynikami
 folder_path = '...'
 output_csv_path = '...'
