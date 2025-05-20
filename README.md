@@ -1,9 +1,6 @@
 # Cardiomegaly-Grupa-1
 Wyniki pracy grupy 1 w projekcie kardiomegalii
 
-
-Jasne! Poniżej znajduje się całość Twojego opisu w sformatowanej wersji Markdown — gotowa do wklejenia do pliku `README.md` w repozytorium GitHub:
-
 ---
 
 # 🫀 Cardiomegaly Detection from Chest X-rays Using Machine Learning
