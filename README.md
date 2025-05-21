@@ -1,6 +1,4 @@
-# Cardiomegaly-Grupa-1
-Wyniki pracy grupy 1 w projekcie kardiomegalii
-
+# Cardiomegaly-Group-1
 ---
 
 # 🫀 Cardiomegaly Detection from Chest X-rays Using Machine Learning
@@ -101,4 +99,27 @@ This project utilized several supervised learning techniques implemented via `sc
 These strategies were used to evaluate generalization performance and to reduce the risk of overfitting given the small dataset size (39 samples).
 
 ---
+
+## 📈 Results
+
+Model evaluation and results are documented as follows:
+
+- Visualizations and plots are embedded within the Jupyter notebook.
+- Detailed data results are stored in a separate `.xls` file.
+- The final model achieved an accuracy score ranging from **70% to 80%**.
+
+---
+
+## 👥 Authors
+
+This project was developed by members of the **AI MED Scientific Club**:
+
+- Dominik Mika  
+- Anna Przyłucka  
+- Jakub Padło  
+- Mateusz Obirek  
+- Mateusz Poszelężny  
+- Antonina Wąsikowska  
+- Weronika Duszka
+
 
