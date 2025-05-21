@@ -7,9 +7,7 @@ This metric provides a compact morphological descriptor that relates the size an
 - Using OpenCV’s `cv2.boundingRect()`, we compute the **axis-aligned bounding box** that tightly encloses the heart region.
 - The area of this rectangle (`width × height`) is then used to compute the **area ratio**:
 
-  \[
-  \text{area ratio} = \frac{\text{heart area}}{\text{bounding box area}}
-  \]
+  **Area Ratio** = Heart Area / Bounding Box Area
 
 This ratio offers a measure of how tightly the heart shape fills its bounding box. Lower ratios may indicate elongated or irregular shapes, whereas higher ratios imply a more compact and symmetric form.
 
