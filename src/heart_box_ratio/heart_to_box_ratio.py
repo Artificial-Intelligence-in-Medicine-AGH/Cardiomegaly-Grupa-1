@@ -6,19 +6,19 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 def calculate_heart_to_box_ratio(mask):
-    # Maska serca (przyjmujemy że serce to piksele o wartości 255)
+    # Heart mask (assumes heart pixels have a value of 255)
     heart_mask = (mask == 255).astype(np.uint8)
 
-    # Oblicz pole serca
+    # Calculate the heart area
     heart_area = int(np.sum(heart_mask))
 
-    # Wyznacz prostokąt opisany (bounding box)
+    # Determine the bounding rectangle
     x, y, w, h = cv2.boundingRect(heart_mask)
 
-    # Oblicz pole prostokąta
+    # Calculate the area of the bounding box
     bounding_box_area = int(w * h)
 
-    # Stosunek pola serca do prostokąta
+    # Ratio of heart area to bounding box area
     area_ratio = heart_area / bounding_box_area if bounding_box_area > 0 else np.nan
 
     return {
@@ -41,7 +41,7 @@ def batch_process_heart_ratios(folder_path, output_csv="heart_box_ratios.csv", s
             mask = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
 
             if mask is None:
-                print(f"Błąd przy wczytywaniu: {filename}")
+                print(f"Error loading: {filename}")
                 continue
 
             data = calculate_heart_to_box_ratio(mask)
@@ -54,21 +54,21 @@ def batch_process_heart_ratios(folder_path, output_csv="heart_box_ratios.csv", s
             })
 
             if save_visuals:
-                # Tworzenie wizualizacji
+                # Create visualization
                 plt.figure(figsize=(4, 4))
                 plt.imshow(mask, cmap="gray")
                 x, y, w, h = data["bbox"]
                 plt.gca().add_patch(plt.Rectangle((x, y), w, h, edgecolor='r', facecolor='none', linewidth=2))
-                plt.title(f"{filename}\nStosunek: {data['area_ratio']:.3f}")
+                plt.title(f"{filename}\nRatio: {data['area_ratio']:.3f}")
                 plt.axis('off')
                 plt.savefig(os.path.join(vis_dir, f"{filename}_bbox.png"))
                 plt.close()
 
-    # Zapis do CSV
+    # Save to CSV
     df = pd.DataFrame(results)
     df.to_csv(output_csv, index=False)
-    print(f"Zapisano wyniki do pliku: {output_csv}")
+    print(f"Results saved to file: {output_csv}")
 
 if __name__ == "__main__":
-    # Przykładowe wywołanie
+     # Example execution
     batch_process_heart_ratios(folder_path="maski", output_csv="heart_box_ratios.csv", save_visuals=True)
